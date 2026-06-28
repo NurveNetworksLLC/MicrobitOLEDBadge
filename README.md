@@ -76,6 +76,8 @@
   <li>📁 <code>/Demos</code> - This contains all the source code for the product; demos, games, drivers and tools. 
   </li>
   <li>📁  <code>ProgrammersGuideDatasheet-V1.1.zip</code> - This is the Programmers Manual and Datasheet for the product. 
+  </li>
+  <li>📁  <code>ProductImages</code> - Contains images, and videos of OLED badge operation. 
 </li>
   
 </ul>
