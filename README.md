@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <img src="YOUR_IMAGE_FOLDER_URL/badge_hero_shot.jpg" alt="Micro:bit Electronic Badge Front View showing Pong Demo" width="65%">
+  <img src="./ProductImages/Product_Shot_01.jpg" alt="Micro:bit Electronic Badge Front View showing Pong Demo" width="65%">
 </p>
 
 <p>Welcome to the official repository for the <strong>Micro:bit Electronic Badge</strong>, engineered by <strong>Nurve Networks LLC</strong>. This hardware expansion board transforms your BBC micro:bit into a fully self-contained portable gaming console, interactive wearable badge, or data-monitoring dashboard. By leveraging high-efficiency parallel-to-serial shift registers, the badge provides an expansive 10-button input control map while preserving critical micro:bit GPIO resources for your own prototyping needs.</p>
