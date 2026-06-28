@@ -69,48 +69,6 @@
 
 <hr>
 
-<h2>🔌 Pin Definitions & Shift Register Serialization</h2>
-<p>To avoid consuming half of the available micro:bit GPIO pins just to read the 10 tactile joystick directions, this board integrates a pair of daisy-chained <strong>74LV165A parallel-to-serial shift registers</strong>[cite: 1]. This allows all 10 independent switch states to be packed and streamed into the host controller using only <strong>3 digital pins</strong>[cite: 1].</p>
-
-<h3>Joystick Serial Bus Interface</h3>
-<ul>
-  <li><strong>Pin 8 (DPAD_LATCH):</strong> Connected to the 74LV165A shift/load (/PL) control line. Software pulls this line LOW to instantly latch the physical button states into internal memory registers, then returns it HIGH to enable bit shifting.</li>
-  <li><strong>Pin 9 (DPAD_CLK):</strong> Rising-edge clock signal. Clocking this pin steps through the registers, presenting the next bit in sequence to the data stream.</li>
-  <li><strong>Pin 16 (DPAD_DOUT):</strong> The active serial input data line streaming back to the micro:bit. <em>Note: Pin 16 must strictly remain set to INPUT mode in your software toolchain to avoid bus contention.</em></li>
-</ul>
-
-<h3>Hardware Bit Map Byte Ordering</h3>
-<p>When executing a read sequence, 16 bits are clocked out in the following hardware sequence:</p>
-<blockquote>
-  <code>(MSB) [ 1, 1, 1, Right_Joy_Right, Right_Joy_Left, Right_Joy_Fire, Right_Joy_Down, Right_Joy_Up | 1, 1, 1, Left_Joy_Right, Left_Joy_Left, Left_Joy_Fire, Left_Joy_Down, Left_Joy_Up ] (LSB)</code>
-</blockquote>
-
-<p align="center">
-  <img src="YOUR_IMAGE_FOLDER_URL/badge_schematic_crop.jpg" alt="74LV165A Shift Register Schematic Configuration" width="70%">
-</p>
-
-<hr>
-
-<h2>🛠️ Software Environment & Toolchains</h2>
-<p>The Micro:bit Electronic Badge is fully open and compatible across multiple block-coding and text-based developer sandboxes[cite: 1]:</p>
-
-<h3>1. Microsoft MakeCode (Blocks / Python / JavaScript)</h3>
-<p>You can leverage pre-built extensions directly within the MakeCode Extensions store by searching for "OLED" or "SSD1306". The following historical extensions are fully compatible with this board's display line:</p>
-<ul>
-  <li><strong>XinaBox OD01:</strong> Excellent text configuration API featuring built-in 1X and 2X scaling parameters (<code>OD01.set1_x()</code>, <code>OD01.set2_x()</code>).</li>
-  <li><strong>Kitronik OLED Extension:</strong> Robust formatting engine optimized for structural layout printing.</li>
-  <li><strong>Tinker PXT:</strong> Lean, lightweight display configuration tool optimized for rapid prototyping blocks.</li>
-</ul>
-
-<h3>2. Native MicroPython (python.microbit.org / Thonny)</h3>
-<p>For high-performance execution speed, advanced memory layouts, or real-time gaming architectures, native MicroPython is heavily recommended. The repository contains libraries supporting two prominent text drivers:</p>
-<ul>
-  <li><strong>Core Electronics PiicoDev Driver:</strong> Highly accurate and precise frame buffer controller. Supports literal string prints, float positioning variables, geometric lines, and rectangle fills.</li>
-  <li><strong>Fizban99 Driver (Advanced Gaming Engine):</strong> Maximizes your processing capability by dropping the active frame-buffer matrix down to a high-speed 64x32 grid using 2x2 macro-pixels. This cuts display memory space by 75% and boosts screen updates by 400%, allowing fluid retro game loops.</li>
-</ul>
-
-<hr>
-
 <h2>📁 Repository Directory Structure & Demos</h2>
 <p>This repository provides a comprehensive pipeline of driver libraries and pre-compiled software configurations to get you prototyping immediately:</p>
 
@@ -139,43 +97,3 @@
 </ul>
 
 <hr>
-
-<h2>🚀 Quick Start Code: Latching & Shifting the Joysticks</h2>
-<p>To implement your own bare-metal joystick read loop in native MicroPython without importing libraries, drop this standard routine directly into your tracking loop:</p>
-
-```python
-from microbit import pin8, pin9, pin16, sleep
-
-# Establish Hardware Pin Mapping
-PIN_LATCH = pin8   # Latch Control Pin (/PL)
-PIN_CLK   = pin9   # Shift Clock Signal Pin (CP)
-PIN_DATA  = pin16  # Serial In Data Pin (/Q7)
-
-# Pre-set safe system idle configuration states
-PIN_LATCH.write_digital(1)
-PIN_CLK.write_digital(0)
-
-def read_joystick_hardware():
-    # Pulse LATCH low to lock the momentary button states into the registers
-    PIN_LATCH.write_digital(0)
-    sleep(1)
-    PIN_LATCH.write_digital(1)
-    
-    right_byte = 0
-    left_byte  = 0
-    
-    # Extract the first 8 clock cycles (Right Joystick map data)
-    for i in range(8):
-        bit = PIN_DATA.read_digital() & 1
-        right_byte = (right_byte << 1) | bit
-        PIN_CLK.write_digital(1)
-        PIN_CLK.write_digital(0)
-        
-    # Extract the following 8 clock cycles (Left Joystick map data)
-    for i in range(8):
-        bit = PIN_DATA.read_digital() & 1
-        left_byte = (left_byte << 1) | bit
-        PIN_CLK.write_digital(1)
-        PIN_CLK.write_digital(0)
-        
-    return left_byte, right_byte
