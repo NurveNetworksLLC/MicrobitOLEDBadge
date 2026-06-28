@@ -17,7 +17,7 @@
 
 <h2>📸 Hardware Architecture at a Glance</h2>
 <p align="center">
-  <img src="YOUR_IMAGE_FOLDER_URL/PCB_Annotated_Layout.jpg" alt="Micro:bit Electronic Badge PCB Layout Annotation" width="60%">
+  <img src="./ProductImages/MicrobitOLEDBadge_Schematic_01.png" alt="Micro:bit Electronic Badge PCB Layout Annotation" width="60%">
 </p>
 
 <ul>
