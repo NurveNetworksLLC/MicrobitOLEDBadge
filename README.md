@@ -1,4 +1,4 @@
-<h1>Micro:bit Electronic Badge / Gaming Adapter</h1>
+<h1>Micro:bit OLED Badge / Gaming Adapter</h1>
 <p align="center">
   <strong>Advanced 128x64 OLED Display & Dual Serialized 5-Way Joysticks for BBC Micro:bit (v1 & v2)</strong>
 </p>
@@ -10,7 +10,7 @@
 <p>Welcome to the official repository for the <strong>Micro:bit Electronic Badge</strong>, engineered by <strong>Nurve Networks LLC</strong>. This hardware expansion board transforms your BBC micro:bit into a fully self-contained portable gaming console, interactive wearable badge, or data-monitoring dashboard. By leveraging high-efficiency parallel-to-serial shift registers, the badge provides an expansive 10-button input control map while preserving critical micro:bit GPIO resources for your own prototyping needs.</p>
 
 <div style="background-color: #f4f6f8; border-left: 5px solid #007791; padding: 15px; margin: 20px 0; border-radius: 4px;">
-  <strong>🛒 Get the Hardware:</strong> Ready to build your own wearable projects or retro games? You can purchase the production-ready Micro:bit Electronic Badge directly on Amazon here: <a href="YOUR_AMAZON_LISTING_LINK" target="_blank" style="color: #007791; font-weight: bold; text-decoration: underline;">Buy on Amazon</a>
+  <strong>🛒 Get the Hardware:</strong> Ready to build your own wearable projects or retro games? You can purchase the production-ready Micro:bit OLED Badge directly on Amazon here: <a href="YOUR_AMAZON_LISTING_LINK" target="_blank" style="color: #007791; font-weight: bold; text-decoration: underline;">Buy on Amazon</a>
 </div>
 
 <hr>
