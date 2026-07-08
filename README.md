@@ -7,7 +7,7 @@
   <img src="./ProductImages/Product_Shot_01.jpg" alt="Micro:bit Electronic Badge Front View showing Pong Demo" width="65%">
 </p>
 
-<p>Welcome to the official repository for the <strong>Micro:bit Electronic Badge</strong>, engineered by <strong>Nurve Networks LLC</strong>. This hardware expansion board transforms your BBC micro:bit into a fully self-contained portable gaming console, interactive wearable badge, or data-monitoring dashboard. By leveraging high-efficiency parallel-to-serial shift registers, the badge provides an expansive 10-button input control map while preserving critical micro:bit GPIO resources for your own prototyping needs.</p>
+<p>Welcome to the official repository for the <strong>Micro:bit OLED Badge</strong>, engineered by <strong>Nurve Networks LLC</strong>. This hardware expansion board transforms your BBC micro:bit into a fully self-contained portable gaming console, interactive wearable badge, or data-monitoring dashboard. By leveraging high-efficiency parallel-to-serial shift registers, the badge provides an expansive 10-button input control map while preserving critical micro:bit GPIO resources for your own prototyping needs.</p>
 
 <div style="background-color: #f4f6f8; border-left: 5px solid #007791; padding: 15px; margin: 20px 0; border-radius: 4px;">
   <strong>🛒 Get the Hardware:</strong> Ready to build your own wearable projects or retro games? You can purchase the production-ready Micro:bit OLED Badge directly on Amazon here: <a href="YOUR_AMAZON_LISTING_LINK" target="_blank" style="color: #007791; font-weight: bold; text-decoration: underline;">Buy on Amazon</a>
